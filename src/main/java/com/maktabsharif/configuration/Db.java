@@ -6,43 +6,44 @@ import java.util.List;
 import com.maktabsharif.entity.Account;
 import com.maktabsharif.entity.Transaction;
 import com.maktabsharif.entity.User;
+import com.maktabsharif.repository.Repository;
 
 public class Db {
-    private static List<User> users = null;
-    private static List<Account> accounts = null;
-    private static List<Transaction> transactions = null;
 
-    public static List<User> getUsers() {
-        if (users == null) {
-            synchronized (users) {
-                if (users == null) {
-                    users = new ArrayList<User>();
+    private static Repository<User> userRepository = null;
+    private static Repository<Account> accountRepository = null;
+    private static Repository<Transaction> transactionRepository = null;
+
+    public static Repository<User> getUserRepository() {
+        if (userRepository == null) {
+            synchronized (userRepository) {
+                if (userRepository == null) {
+                    userRepository = new Repository<>();
                 }
             }
         }
-        return users;
+        return userRepository;
     }
 
-    public static List<Account> getAccounts() {
-        if (accounts == null) {
-            synchronized (accounts) {
-                if (accounts == null) {
-                    accounts = new ArrayList<Account>();
+    public static Repository<Account> getAccountRepository() {
+        if (accountRepository == null) {
+            synchronized (accountRepository) {
+                if (accountRepository == null) {
+                    accountRepository = new Repository<>();
                 }
             }
         }
-        return accounts;
+        return accountRepository;
     }
 
-    public static List<Transaction> getTransactions() {
-        if (transactions == null) {
-            synchronized (transactions) {
-                if (transactions == null) {
-                    transactions = new ArrayList<Transaction>();
+    public static Repository<Transaction> getTransactionRepository() {
+        if (transactionRepository == null) {
+            synchronized (transactionRepository) {
+                if (transactionRepository == null) {
+                    transactionRepository = new Repository<>();
                 }
             }
         }
-        return transactions;
+        return transactionRepository;
     }
-
 }

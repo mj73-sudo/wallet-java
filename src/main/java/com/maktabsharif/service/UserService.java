@@ -6,7 +6,7 @@ import com.maktabsharif.entity.User;
 
 public class UserService implements Service<User> {
 
-    public void create() {
+    public void create(User entity) {
         // TODO Auto-generated method stub
 
     }
@@ -19,6 +19,12 @@ public class UserService implements Service<User> {
     public User findById(String id) {
         // TODO Auto-generated method stub
         return null;
+    }
+
+    @Override
+    public int count() {
+        // TODO Auto-generated method stub
+        return 0;
     }
 
 }

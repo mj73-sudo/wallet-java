@@ -6,7 +6,7 @@ import com.maktabsharif.entity.Transaction;
 
 public class TransactionService implements Service<Transaction>{
 
-    public void create() {
+    public void create(Transaction entity) {
         // TODO Auto-generated method stub
         
     }
@@ -19,6 +19,12 @@ public class TransactionService implements Service<Transaction>{
     public Transaction findById(String id) {
         // TODO Auto-generated method stub
         return null;
+    }
+
+    @Override
+    public int count() {
+        // TODO Auto-generated method stub
+        return 0;
     }
 
 }

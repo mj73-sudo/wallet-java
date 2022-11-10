@@ -6,7 +6,7 @@ import com.maktabsharif.entity.Account;
 
 public class AccountService implements Service<Account>{
 
-    public void create() {
+    public void create(Account entity) {
         // TODO Auto-generated method stub
         
     }
@@ -19,6 +19,12 @@ public class AccountService implements Service<Account>{
     public Account findById(String id) {
         // TODO Auto-generated method stub
         return null;
+    }
+
+    @Override
+    public int count() {
+        // TODO Auto-generated method stub
+        return 0;
     }
     
 }
