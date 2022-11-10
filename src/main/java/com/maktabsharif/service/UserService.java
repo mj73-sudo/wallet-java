@@ -2,13 +2,18 @@ package com.maktabsharif.service;
 
 import java.util.List;
 
+import com.maktabsharif.configuration.Db;
 import com.maktabsharif.entity.User;
+import com.maktabsharif.repository.Repository;
 
 public class UserService implements Service<User> {
 
-    public void create(User entity) {
-        // TODO Auto-generated method stub
+    Repository<User> repository = Db.getUserRepository();
 
+    public void create(User entity) {
+        if (repository.findById(entity.getId()) == null) {
+            repository.create(entity);
+        }
     }
 
     public List<User> findAll() {
