@@ -11,6 +11,7 @@ public class UserService implements Service<User> {
 
     Repository<User> repository = Db.getUserRepository();
 
+
     public void create(User entity) {
         if (repository.findById(entity.getId()) == null) {
             repository.create(entity);
@@ -20,19 +21,16 @@ public class UserService implements Service<User> {
     }
 
     public List<User> findAll() {
-        // TODO Auto-generated method stub
-        return null;
+        return repository.findAll();
     }
 
     public User findById(String id) {
-        // TODO Auto-generated method stub
-        return null;
+        return repository.findById(id);
     }
 
     @Override
     public int count() {
-        // TODO Auto-generated method stub
-        return 0;
+        return repository.count();
     }
 
 }

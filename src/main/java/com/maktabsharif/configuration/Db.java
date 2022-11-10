@@ -16,7 +16,7 @@ public class Db {
 
     public static Repository<User> getUserRepository() {
         if (userRepository == null) {
-            synchronized (userRepository) {
+            synchronized (Db.class) {
                 if (userRepository == null) {
                     userRepository = new Repository<>();
                 }
@@ -27,7 +27,7 @@ public class Db {
 
     public static Repository<Account> getAccountRepository() {
         if (accountRepository == null) {
-            synchronized (accountRepository) {
+            synchronized (Db.class) {
                 if (accountRepository == null) {
                     accountRepository = new Repository<>();
                 }
@@ -38,7 +38,7 @@ public class Db {
 
     public static Repository<Transaction> getTransactionRepository() {
         if (transactionRepository == null) {
-            synchronized (transactionRepository) {
+            synchronized (Db.class) {
                 if (transactionRepository == null) {
                     transactionRepository = new Repository<>();
                 }
