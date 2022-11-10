@@ -1,15 +1,19 @@
 package com.maktabsharif.entity;
 
-import com.maktabsharif.util.Utils;
+import javax.persistence.Column;
+import javax.persistence.Id;
+
 
 public class BaseEntity {
-    private String id;
+    @Id
+    @Column(name = "id")
+    private Long id;
 
-    public BaseEntity() {
-        this.id = Utils.generateId();
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 }

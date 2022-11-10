@@ -13,11 +13,7 @@ public class UserService implements Service<User> {
 
 
     public void create(User entity) {
-        if (repository.findById(entity.getId()) == null) {
-            repository.create(entity);
-        } else {
-            throw new UserExistException("the user is exist");
-        }
+      
     }
 
     public List<User> findAll() {
