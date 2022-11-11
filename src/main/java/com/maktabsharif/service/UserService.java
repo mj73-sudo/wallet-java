@@ -10,9 +10,8 @@ public class UserService implements Service<User> {
 
     Repository<User> repository = Db.getUserRepository();
 
-
     public void create(User entity) {
-      
+        repository.create(entity);
     }
 
     public List<User> findAll() {
