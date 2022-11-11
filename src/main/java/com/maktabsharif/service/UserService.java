@@ -4,7 +4,6 @@ import java.util.List;
 
 import com.maktabsharif.configuration.Db;
 import com.maktabsharif.entity.User;
-import com.maktabsharif.exception.UserExistException;
 import com.maktabsharif.repository.Repository;
 
 public class UserService implements Service<User> {

@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.condition.EnabledOnOs;
@@ -24,6 +25,7 @@ public class UserServiceTest {
     }
 
     @Test
+    @Disabled
     public void isCreateUser() {
         userService.create(user);
         assertEquals(userService.count(), 1);
@@ -31,6 +33,7 @@ public class UserServiceTest {
 
     @Test
     @RepeatedTest(2)
+    @Disabled
     public void createExistUser() {
         assertThrows(UserExistException.class,
                 () -> {

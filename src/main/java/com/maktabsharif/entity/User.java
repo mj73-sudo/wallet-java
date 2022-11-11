@@ -5,15 +5,21 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.maktabsharif.util.Utils;
+
 @Entity
 @Table(name = "users")
-public class User {
+public class User extends BaseEntity {
     @Id
     @Column(name = "id")
-    private Long id;
+    private String id;
 
     @Column(name = "username")
     private String username;
+
+    public User() {
+        id = Utils.generateId();
+    }
 
     public String getUsername() {
         return username;
@@ -23,13 +29,12 @@ public class User {
         this.username = username;
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+    // public void setId(Long id) {
+    // this.id = id;
+    // }
 
-    
 }

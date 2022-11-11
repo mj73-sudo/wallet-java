@@ -2,12 +2,18 @@ package com.maktabsharif.entity;
 
 import com.maktabsharif.entity.enums.TransactionChannel;
 import com.maktabsharif.entity.enums.TransactionType;
+import com.maktabsharif.util.Utils;
 
 public class Transaction extends BaseEntity {
+    private String id;
     private Long value;
     private TransactionType transactionType;
     private TransactionChannel transactionChannel;
     private Account account;
+
+    public Transaction() {
+        id = Utils.generateId();
+    }
 
     public Long getValue() {
         return value;
@@ -39,6 +45,10 @@ public class Transaction extends BaseEntity {
 
     public void setAccount(Account account) {
         this.account = account;
+    }
+
+    public String getId() {
+        return id;
     }
 
 }

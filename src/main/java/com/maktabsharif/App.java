@@ -1,11 +1,8 @@
 package com.maktabsharif;
 
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
-import org.hibernate.cfg.Configuration;
-import org.hibernate.service.ServiceRegistry;
 
+import com.maktabsharif.configuration.DatabaseConfiguration;
 import com.maktabsharif.entity.User;
 
 /**
@@ -14,44 +11,31 @@ import com.maktabsharif.entity.User;
  */
 public class App {
 
-    static Session sessionObj;
-    static SessionFactory sessionFactoryObj;
-
-    private static SessionFactory buildSessionFactory() {
-        Configuration configObj = new Configuration();
-        configObj.configure("hibernate.cfg.xml");
-
-        ServiceRegistry serviceRegistryObj = new StandardServiceRegistryBuilder()
-                .applySettings(configObj.getProperties()).build();
-
-        sessionFactoryObj = configObj.buildSessionFactory(serviceRegistryObj);
-        return sessionFactoryObj;
-    }
+    private static Session session;
 
     public static void main(String[] args) {
         System.out.println(".......Hibernate Maven Example.......\n");
         try {
-            sessionObj = buildSessionFactory().openSession();
-            sessionObj.beginTransaction();
- 
-                User user = new User();
-                user.setId(1l);
-                user.setUsername("sda");
- 
-                sessionObj.save(user);
+            session = DatabaseConfiguration.buildSessionFactory().openSession();
+            session.beginTransaction();
+
+            User user = new User();
+            user.setUsername("ali");
+
+            session.save(user);
             System.out.println("\n.......Records Saved Successfully To The Database.......\n");
- 
+
             // Committing The Transactions To The Database
-            sessionObj.getTransaction().commit();
-        } catch(Exception sqlException) {
-            if(null != sessionObj.getTransaction()) {
+            session.getTransaction().commit();
+        } catch (Exception sqlException) {
+            if (null != session.getTransaction()) {
                 System.out.println("\n.......Transaction Is Being Rolled Back.......");
-                sessionObj.getTransaction().rollback();
+                session.getTransaction().rollback();
             }
             sqlException.printStackTrace();
         } finally {
-            if(sessionObj != null) {
-                sessionObj.close();
+            if (session != null) {
+                session.close();
             }
         }
     }

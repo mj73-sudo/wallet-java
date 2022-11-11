@@ -7,6 +7,8 @@ import org.junit.jupiter.api.*;
 public class AccountTest {
     @Test
     @DisplayName("create account entity and check is generate id")
+    @Disabled
+
     public void createUser() {
         User user = new User();
         assertNotNull(user.getId());
@@ -14,6 +16,8 @@ public class AccountTest {
 
     @Test
     @DisplayName("check generated id length equals 36")
+    @Disabled
+
     public void checkLengthUserId() {
         User user = new User();
         assertNotNull(user.getId());
