@@ -1,5 +1,9 @@
 package com.maktabsharif.entity;
 
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.ManyToOne;
+
 import com.maktabsharif.entity.enums.TransactionChannel;
 import com.maktabsharif.entity.enums.TransactionType;
 import com.maktabsharif.util.Utils;
@@ -8,6 +12,7 @@ public class Transaction extends BaseEntity {
     private String id;
     private Long value;
     private TransactionType transactionType;
+    @Enumerated(EnumType.STRING)
     private TransactionChannel transactionChannel;
     private Account account;
 

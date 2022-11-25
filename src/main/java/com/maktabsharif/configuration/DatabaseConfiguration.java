@@ -20,10 +20,10 @@ public class DatabaseConfiguration {
 
                     ServiceRegistry serviceRegistryObj = new StandardServiceRegistryBuilder()
                             .applySettings(configObj.getProperties()).build();
+
                     instance = configObj.buildSessionFactory(serviceRegistryObj);
                 }
             }
-
         }
         return instance;
     }

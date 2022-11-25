@@ -21,7 +21,7 @@ public class UserServiceTest {
     public static void init() {
         userService = new UserService();
         user = new User();
-        user.setUsername("admin");
+        // user.setUsername("admin");
     }
 
     @Test
